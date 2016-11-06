@@ -16,7 +16,7 @@ RESOURCE_DIR="/home/slawek/Android/Yarpiin-Kernel-OP2-CM14"
 ANYKERNEL_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha"
 
 # Kernel Details
-BASE_YARPIIN_VER="YARPIIN.OP2.CM14"
+BASE_YARPIIN_VER="-YARPIIN.OP2.CM14"
 VER=".alpha3"
 YARPIIN_VER="$BASE_YARPIIN_VER$VER"
 
@@ -33,7 +33,7 @@ REPACK_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha"
 PATCH_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha/patch"
 MODULES_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha/modules"
 ZIP_MOVE="/home/slawek/Android/Kernelzip"
-ZIMAGE_DIR="/home/slawek/Android/Yarpiin-Kernel-CM14/arch/arm64/boot"
+ZIMAGE_DIR="/home/slawek/Android/Yarpiin-Kernel-OP2-CM14/arch/arm64/boot"
 
 # Functions
 function clean_all {
@@ -52,7 +52,7 @@ function make_kernel {
 		echo
 		make ARCH=arm64 CROSS_COMPILE=/home/slawek/Android/Toolchains/aarch64-linux-android-4.9-kernel/bin/aarch64-linux-android- yarpiin_defconfig
 		make ARCH=arm64 CROSS_COMPILE=/home/slawek/Android/Toolchains/aarch64-linux-android-4.9-kernel/bin/aarch64-linux-android-
-		cp -vr $ZIMAGE_DIR/$KERNEL $REPACK_DIR/Image.gz-dtb
+		cp -vr $ZIMAGE_DIR/$KERNEL $REPACK_DIR/$KERNEL
 }
 
 
