@@ -18,10 +18,10 @@ ANYKERNEL_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha"
 # Kernel Details
 BASE_YARPIIN_VER="YARPIIN.OP2.CM14"
 VER=".alpha3"
-YARPIIN_VER="-YARPIIN.OP2.CM14"
+YARPIIN_VER="$BASE_YARPIIN_VER$VER"
 
 # Vars
-export LOCALVERSION=`echo $YARPIIN_VER`
+export LOCALVERSION=`echo -$YARPIIN_VER`
 export CROSS_COMPILE="/home/slawek/Android/Toolchains/aarch64-linux-android-4.9-kernel/bin/aarch64-linux-android-"
 export ARCH=arm64
 export SUBARCH=arm64
@@ -58,8 +58,8 @@ function make_kernel {
 
 function make_zip {
 		cd /home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha
-		zip -r `echo $BASE_YARPIIN_VER`.zip *
-		mv  `echo $BASE_YARPIIN_VER`.zip $ZIP_MOVE
+		zip -r `echo $YARPIIN_VER`.zip *
+		mv  `echo $YARPIIN_VER`.zip $ZIP_MOVE
 		cd $KERNEL_DIR
 }
 
