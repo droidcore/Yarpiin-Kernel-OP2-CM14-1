@@ -16,9 +16,9 @@ RESOURCE_DIR="/home/slawek/Android/Yarpiin-Kernel-OP2-CM14"
 ANYKERNEL_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha"
 
 # Kernel Details
-BASE_YARPIIN_VER="-YARPIIN.OP2.CM14"
+BASE_YARPIIN_VER="YARPIIN.OP2.CM14"
 VER=".alpha3"
-YARPIIN_VER="$BASE_YARPIIN_VER$VER"
+YARPIIN_VER="-YARPIIN.OP2.CM14"
 
 # Vars
 export LOCALVERSION=`echo $YARPIIN_VER`
@@ -58,8 +58,8 @@ function make_kernel {
 
 function make_zip {
 		cd /home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha
-		zip -r `echo $YARPIIN_VER`.zip *
-		mv  `echo $YARPIIN_VER`.zip $ZIP_MOVE
+		zip -r `echo $BASE_YARPIIN_VER`.zip *
+		mv  `echo $BASE_YARPIIN_VER`.zip $ZIP_MOVE
 		cd $KERNEL_DIR
 }
 
@@ -109,6 +109,8 @@ do
 case "$dchoice" in
 	y|Y)
 		make_kernel
+		echo
+		echo "Kernel comilation succesfull!!!"
 		break
 		;;
 	n|N )
@@ -129,6 +131,8 @@ do
 case "$dchoice" in
 	y|Y)
 		make_zip
+		echo
+		echo "Kernel zipped..."
 		break
 		;;
 	n|N )
@@ -148,6 +152,7 @@ echo "Build Completed in:"
 echo "-------------------"
 echo -e "${restore}"
 
+DATE_START=date
 DATE_END=$(date +"%s")
 DIFF=$(($DATE_END - $DATE_START))
 echo "Time: $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."
