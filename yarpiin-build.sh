@@ -17,7 +17,7 @@ ANYKERNEL_DIR="/home/slawek/Android/Kernelzip/YARPIIN.OP2.CM14.alpha"
 
 # Kernel Details
 BASE_YARPIIN_VER="YARPIIN.OP2.CM14"
-VER=".alpha3"
+VER=".alpha5"
 YARPIIN_VER="$BASE_YARPIIN_VER$VER"
 
 # Vars
